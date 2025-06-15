@@ -1,8 +1,23 @@
 [project]
 name = "on-chain-identity-registry"
 clarity_version = "2.1.0"
-description = "A basic on-chain identity registry using Clarity"
-authors = ["Midorichie <hamsohood@gmail.com>"]
+description = "An enhanced on-chain identity registry with verification and attestation system"
+authors = ["Midorichie <mido@example.com>"]
+requirements = []
 
 [contracts.identity-registry]
 path = "contracts/identity-registry.clar"
+depends_on = []
+
+[contracts.attestation-registry]
+path = "contracts/attestation-registry.clar"
+depends_on = ["identity-registry"]
+
+# Development network configuration
+[repl]
+costs = true
+
+# Network configurations
+[networks]
+testnet = "https://stacks-node-api.testnet.stacks.co"
+mainnet = "https://stacks-node-api.mainnet.stacks.co"
